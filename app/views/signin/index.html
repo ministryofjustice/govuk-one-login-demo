@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+  GOV.UK One Login demo
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        GOV.UK One Login demo
+      </h1>
+
+
+      {{ govukInsetText({
+        text: "Not signed in"
+      }) }}
+
+      <form action="summary" method="post">
+
+        <h2 class="govuk-heading-m">This demo shows how we save and return a simple data set</h2>
+        {{ govukInput({
+          label: {
+            text: "Enter some data",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          id: "remembered-data",
+          name: "remembered-data"
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
