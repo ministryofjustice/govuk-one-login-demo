@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        GOV.UK One Login demo
+      </h1>
+
+
+      {{ govukInsetText({
+        text: "Not signed in"
+      }) }}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+            text: "Entered Data"
+          },
+            value: {
+            text: data["remembered-data"]
+          }
+          }
+        ]
+      }) }}
+
+      <a href="/login">
+
+        {{ govukButton({
+          text: "Sign in to save progress"
+        }) }}
+      </a>
+
+    </div>
+  </div>
+
+{% endblock %}
